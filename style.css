@@ -1,110 +1,191 @@
-body{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	height: 100vh;
-	background-color: #423d36;
-
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
 }
 
-.winner{
-	text-align: center;
-	color: #ffc82d;
+body {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   min-height: 80vh;
+   background-color: #423d36;
 }
 
-
-.choice-btn{
-	background: transparent;
-	outline: none;
-	border: none;
-	cursor: pointer;
-	font-size: 40px;
-	transition: 0.3s ease ;
+.container {
+   max-width: 500px;
+   width: 100%;
 }
 
-.choice-btn:hover{
-	transform: scale(1.1);
-	opacity: 0.8;
+.winner {
+   text-align: center;
+   color: #ffc82d;
 }
 
-span{
-	font-size: 35px;
-}
-h3{
-	font-size: 25px;
-}
-
-.gamers{
-	display: flex;
-	justify-content: space-between;
-	color: #ffc82d;
-
+.choice-btn {
+   background: transparent;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   font-size: 40px;
+   transition: 0.3s ease;
 }
 
-.user{
-	margin-right: 80px;
+.choice-btn:hover {
+   transform: scale(1.1);
+   opacity: 0.8;
 }
 
-.user-score,.computer-score{
-	font-weight: 600;
-	font-size: 60px;
+.choice-btn:not(:last-child) {
+   margin-right: 15px;
 }
 
-.all-btns{
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
+span {
+   font-size: 35px;
 }
 
-.result{
-	color: #ffc82d;
+h3 {
+   font-size: 25px;
 }
 
-.play-again{
-	padding: 12px 60px;
-	border: unset;
-	border-radius: 15px;
-	color: #212121;
-	z-index: 1;
-	background: #e8e8e8;
-	position: relative;
-	font-weight: 1000;
-	font-size: 17px;
-	-webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-	box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-	transition: all 250ms;
-	overflow: hidden;
-	cursor: pointer;
+.players {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   text-align: center;
+   color: #ffc82d;
+   margin-top: 50px;
+}
+
+.user-score,
+.computer-score {
+   font-weight: 600;
+   font-size: 60px;
+}
+
+.options {
+   margin-top: 20px;
+}
+
+.options,
+.btn-wrapper {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.btn-wrapper {
+   margin-top: 40px;
+}
+
+.play-again {
+   display: none;
+   padding: 12px 60px;
+   border: unset;
+   border-radius: 15px;
+   color: #212121;
+   z-index: 1;
+   background: #e8e8e8;
+   position: relative;
+   font-weight: 1000;
+   font-size: 17px;
+   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+   transition: all 250ms;
+   overflow: hidden;
+   cursor: pointer;
+}
+
+.game-length {
+   outline: none;
+   margin-left: 10px;
+   width: 50px;
 }
 
 .play-again::before {
- content: "";
- position: absolute;
- top: 0;
- left: 0;
- height: 100%;
- width: 0;
- border-radius: 10px;
- background-color: #ffc82d;
- z-index: -1;
- -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
- box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
- transition: all 250ms
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 0;
+   border-radius: 10px;
+   background-color: #ffc82d;
+   z-index: -1;
+   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+   transition: all 250ms;
 }
 
 .play-again:hover {
- color:  #423d36;
+   color: #423d36;
 }
 
 .play-again:hover::before {
- width: 100%;
+   width: 100%;
 }
 
-
-.disable{
-	opacity: 0.5;
-	pointer-events: none;
+.disable {
+   opacity: 0.5;
+   pointer-events: none;
 }
 
+@media (max-width: 510px) {
+   .container {
+      max-width: 400px;
+   }
+   span {
+      font-size: 30px;
+   }
+   h3 {
+      font-size: 21px;
+   }
+   .choice-btn:not(:last-child) {
+      margin-right: 20px;
+   }
+}
 
+@media (max-width: 410px) {
+   .container {
+      max-width: 350px;
+      padding: 0 10px;
+   }
+   span {
+      font-size: 25px;
+   }
+   h3 {
+      font-size: 18px;
+   }
+   .choice-btn:not(:last-child) {
+      margin-right: 15px;
+   }
+}
+
+@media (max-width: 360px) {
+   .user {
+      display: flex;
+      flex-direction: column;
+   }
+   .computer {
+      display: flex;
+      flex-direction: column-reverse;
+   }
+
+   span {
+      font-size: 35px;
+   }
+
+   .user-score,
+   .computer-score {
+      font-size: 50px;
+      margin-top: 5px;
+   }
+   .options {
+      margin-top: 23px;
+   }
+
+   .choice-btn {
+      font-size: 35px;
+   }
+}
